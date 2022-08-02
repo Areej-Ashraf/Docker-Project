@@ -1,14 +1,15 @@
-version: '2'
+version: '3'
 services:
   db:
     image: keinos/sqlite3
+    tty: true
+    stdin_open: true
     volumes: 
     - dbdata:/var/lib/sqlite3/data
     environment:
-    - ./env
+    - .env
   web:
     build: .
-    command: bin/rails server -p 3000 -b '0.0.0.0' # this is redundant as it the container's default command
     volumes: 
     - webdata:/app
     ports: 
@@ -18,6 +19,4 @@ services:
 volumes:
   dbdata:
   webdata:
-  
-
 
