@@ -41,8 +41,6 @@ jobs:
     - name: Docker Build Push
       uses: rossmaclean/docker-build-push-action@v0.0.15
       with:
-        args: --docker
-      env:
         USERNAME: ${{ secrets.DOCKER_USERNAME }}
         PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         BUILDX: "true"
