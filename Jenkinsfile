@@ -2,7 +2,7 @@ pipeline
 {
   environment {
     registry = "areejashraf/sqlite-jenkins"
-    registryCredential = ‘dockerhub’
+    registryCredential = 'dockerhub'
   }
  agent any
   stages
