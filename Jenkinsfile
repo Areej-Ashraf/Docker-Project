@@ -1,10 +1,5 @@
 pipeline
 {
-  script
-  {
-      def dockerHome = tool 'docker'
-      env.PATH = "${dockerHome}/bin:${env.PATH}"
-  }
   environment {
     registry = "areejashraf/sqlite-jenkins"
     registryCredential = 'dockerhub'
@@ -20,6 +15,11 @@ pipeline
     }
     stage('Building image') {
       steps{
+        script
+        {
+            def dockerHome = tool 'docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
