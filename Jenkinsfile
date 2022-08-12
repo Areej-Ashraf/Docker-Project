@@ -21,7 +21,7 @@ pipeline
             env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            sh 'docker build -t myimage:lts .'
         }
       }
     }
