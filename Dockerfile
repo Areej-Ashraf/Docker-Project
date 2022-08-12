@@ -1,4 +1,7 @@
-FROM ruby:2.7.2-alpine
+FROM jenkins/jenkins:lts
+USER root
+RUN curl -sSL https://get.docker.com/|sh
+USER jenkins
 
 ENV DEV_PACKAGES="build-base ruby-dev yaml-dev tzdata sqlite-dev" \
 RAILS_PACKAGES="nodejs"
