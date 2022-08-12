@@ -1,14 +1,14 @@
 pipeline
 {
- environment {
+  environment {
     registry = "areejashraf/sqlite-jenkins"
     registryCredential = ‘dockerhub’
   }
  agent any
   stages
-  {
-    stages {
-    stage('Cloning Git') {
+ {
+    stage('Cloning Git')
+    {
       steps {
         git 'https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
       }
