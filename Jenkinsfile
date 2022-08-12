@@ -10,7 +10,7 @@ pipeline
     stage('Cloning Git')
     {
       steps {
-        git 'https://github.com/gustavoapolinario/microservices-node-example-todo-frontend.git'
+        git 'https://github.com/Areej-Ashraf/Docker-Project.git'
       }
     }
     stage('Building image') {
