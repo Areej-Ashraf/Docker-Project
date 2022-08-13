@@ -1,7 +1,11 @@
 FROM ruby:2.7.2-alpine
+RUN apk add -U subversion
+
 
 ENV DEV_PACKAGES="build-base ruby-dev yaml-dev tzdata sqlite-dev" \
 RAILS_PACKAGES="nodejs"
+
+RUN apk add -U subversion
 
 RUN apk --update --upgrade add $RAILS_PACKAGES $DEV_PACKAGES
 
