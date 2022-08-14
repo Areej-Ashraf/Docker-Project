@@ -2,7 +2,8 @@ pipeline
 {
   environment {
     registry = "areejashraf/sqlite-jenkins"
-    registryCredential = 'dockerhub'
+    registryCredential = 'docker_id'
+    dockerImage = '' 
   }
  agent any
   stages
@@ -16,17 +17,24 @@ pipeline
     stage('Building image') {
       steps{
         script {
-            sh 'docker build -t myimage:lts .'
+           dockerImage = docker.build registry + ":$BUILD_NUMBER" 
         }
       }
     }
-    stage("deploy")
-    {
-      steps
-      {
-        echo 'deploying...'
-      }
-    }
+    stage('Push into dockerhub')
+    { 
+      steps 
+      { 
+        script
+        { 
+            docker.withRegistry( '', registryCredential ) 
+            { 
+            dockerImage.push() 
+            }
+
+         } 
+       }
+    } 
   }
 }
 node
