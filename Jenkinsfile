@@ -13,13 +13,18 @@ pipeline
         git 'https://github.com/Areej-Ashraf/Docker-Project.git'
       }
     }
-    stage('Building image') {
-      steps{
-        script
+   stage('initialize')
+   {
+     steps {
+       script
         {
             def dockerHome = tool 'docker'
             env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
+        } 
+     }
+   }
+    stage('Building image') {
+      steps{
         script {
             sh 'docker build -t myimage:lts .'
         }
