@@ -8,7 +8,7 @@ pipeline
  agent any
   stages
  {
-    stage('Cloning Git')
+    stage('Cloning Git repo')
     {
       steps {
         git 'https://github.com/Areej-Ashraf/Docker-Project.git'
